@@ -20,7 +20,7 @@ public class Gym {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	
 	private String name;
 	
@@ -37,7 +37,7 @@ public class Gym {
 	}
 	
 	//helper constructors
-	public Gym(int id, String name, LocalDate dateOpened, boolean affiliated) {
+	public Gym(long id, String name, LocalDate dateOpened, boolean affiliated) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -58,7 +58,7 @@ public class Gym {
 	}
 
 	//getters and setters
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -82,7 +82,7 @@ public class Gym {
 		this.dateOpened = dateOpened;
 	}
 
-	public boolean isAffiliated() {
+	public boolean getAffiliated() {
 		return affiliated;
 	}
 
