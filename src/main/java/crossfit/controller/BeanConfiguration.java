@@ -17,7 +17,7 @@ public class BeanConfiguration {
 
 	@Bean
 	public Gym gym() {
-		Gym bean = new Gym("CrossFit Ankeny");
+		Gym bean = new Gym("Unnamed Gym");
 //		bean.setName("CrossFit Ankeny");
 //		bean.setDateOpened(LocalDate.of(2010, 01, 01));
 //		bean.setAffiliated(true);
