@@ -55,4 +55,11 @@ public class WebController {
 		return viewAllGyms(model);
 	}
 	
+	@GetMapping("/deleteGym/{id}")
+	public String deleteGym(@PathVariable("id") long id, Model model) {
+		Gym g = repo.findById(id).orElse(null);
+		repo.delete(g);
+		return viewAllGyms(model);
+	}
+	
 }
