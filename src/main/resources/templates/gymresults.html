@@ -19,6 +19,12 @@ th, td {
 <body>
     <form>
         <table>
+            <tr>
+                <th>Id</th>
+                <th>Gym Name</th>
+                <th>Date Opened</th>
+                <th>Affiliated</th>
+            </tr>
             <tr th:each="currentGym : ${gyms}">
                 <td th:text="${currentGym.id}" />
                 <td th:text="${currentGym.name}">
