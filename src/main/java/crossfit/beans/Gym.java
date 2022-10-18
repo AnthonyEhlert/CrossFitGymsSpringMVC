@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * @author Tony Ehlert - aehlert
  * CIS175 - Fall 2022
@@ -22,8 +24,9 @@ public class Gym {
 	
 	private String name;
 	
-	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dateOpened;
+	
 	private boolean affiliated;
 	
 	
