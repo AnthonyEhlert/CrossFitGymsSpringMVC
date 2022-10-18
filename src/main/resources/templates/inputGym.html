@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert New Gym</title>
+</head>
+<body>
+    <form th:object="${newGym}" th:action="@{/inputGym}" method='POST'>
+        Gym Name: <input name="name" size="20"> <br /> <br />
+        Date Opened: <input name="dateOpened" size="15"><br /><br />
+        Affiliated: <input name="affiliated" size="10"><br /><br/>
+        <input name="submit" type="submit" value="Submit" />
+    </form>
+    <a href="viewAllGyms">View all Gyms</a>
+</body>
+</html>
