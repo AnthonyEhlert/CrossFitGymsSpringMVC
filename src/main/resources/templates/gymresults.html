@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+</style>
+<meta charset="UTF-8">
+<title>View All Gyms</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr th:each="currentGym : ${gyms}">
+                <td th:text="${currentGym.id}" />
+                <td th:text="${currentGym.name}">
+                <td th:text="${currentGym.dateOpened}">
+                <td th:text="${currentGym.affiliated}">
+            </tr>
+        </table>
+    </form>
+    <a href="../inputGym">Add a new gym</a>
+</body>
+</html>
