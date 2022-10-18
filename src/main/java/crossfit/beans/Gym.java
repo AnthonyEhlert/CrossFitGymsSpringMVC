@@ -82,7 +82,7 @@ public class Gym {
 		this.dateOpened = dateOpened;
 	}
 
-	public boolean getAffiliated() {
+	public boolean isAffiliated() {
 		return affiliated;
 	}
 
