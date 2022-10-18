@@ -42,7 +42,7 @@ public class WebController {
 		return viewAllGyms(model);
 	}
 	
-	@GetMapping("/edit/{id}")
+	@GetMapping("/editGym/{id}")
 	public String showUpdateGym(@PathVariable("id") long id, Model model) {
 		Gym g = repo.findById(id).orElse(null);
 		model.addAttribute("newGym", g);
