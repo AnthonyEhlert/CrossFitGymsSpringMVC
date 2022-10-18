@@ -42,13 +42,13 @@ public class WebController {
 		return viewAllGyms(model);
 	}
 	
-//	@GetMapping
-//	public String showUpdateGym(@PathVariable("id") long id, Model model) {
-//		Gym g = repo.findById(id).orElse(null);
-//		model.addAttribute("newGym", g);
-//		return "inputGym";
-//	}
-//	
+	@GetMapping("/edit/{id}")
+	public String showUpdateGym(@PathVariable("id") long id, Model model) {
+		Gym g = repo.findById(id).orElse(null);
+		model.addAttribute("newGym", g);
+		return "inputGym";
+	}
+	
 	@PostMapping("/update/{id}")
 	public String reviseGym(Gym g, Model model) {
 		repo.save(g);
