@@ -30,6 +30,7 @@ th, td {
                 <td th:text="${currentGym.name}">
                 <td th:text="${currentGym.dateOpened}">
                 <td th:text="${currentGym.affiliated}">
+                <td><a th:href="@{/editGym/{id}(id=${currentGym.id})}">Edit</a></td>
             </tr>
         </table>
     </form>
