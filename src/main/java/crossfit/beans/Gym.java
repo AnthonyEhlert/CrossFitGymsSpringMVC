@@ -1,11 +1,15 @@
 package crossfit.beans;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,6 +30,9 @@ public class Gym {
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dateOpened;
+	
+	@OneToMany(mappedBy = "gym", cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
+	private List<Coach> listOfCoaches;
 	
 	private boolean affiliated;
 	
@@ -62,7 +69,7 @@ public class Gym {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -90,9 +97,20 @@ public class Gym {
 		this.affiliated = affiliated;
 	}
 
+	public List<Coach> getListOfCoaches() {
+		return listOfCoaches;
+	}
+
+	public void setListOfCoaches(List<Coach> listOfCoaches) {
+		this.listOfCoaches = listOfCoaches;
+	}
+
 	@Override
 	public String toString() {
-		return "Gym [id=" + id + ", name=" + name + ", dateOpened=" + dateOpened + ", affiliated=" + affiliated + "]";
+		return "Gym [id=" + id + ", name=" + name + ", dateOpened=" + dateOpened + ", listOfCoaches=" + listOfCoaches
+				+ ", affiliated=" + affiliated + "]";
 	}
+
+
 	
 }
