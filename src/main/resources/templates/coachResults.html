@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+</style>
+<meta charset="UTF-8">
+<title>View All Coaches</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Coach First Name</th>
+                <th>Coach Last Name</th>
+                <th>Gym</th>
+                <th>Certifications</th>
+            </tr>
+            <tr th:each="currentCoach : ${coaches}">
+                <td th:text="${currentCoach.id}" />
+                <td th:text="${currentCoach.firstName}">
+                <td th:text="${currentCoach.lastName}">
+                <td th:text="${currentCoach.gym.name}">
+                <td>
+                    <table>
+                        <tr th:each="certification : ${currentCoach.listOfCertifications}">
+                            <td align="center" th:text="${certification.name} + ' Expires: ' + ${certification.dateExpires}">
+                        </tr>
+                    </table>
+                </td>
+                <td><a th:href="@{/editCoach/{id}(id=${currentCoach.id})}">Edit</a></td>
+                <td><a th:href="@{/deleteCoach/{id}(id=${currentCoach.id})}">Delete</a></td>
+            </tr>
+        </table>
+    </form>
+    <br /><br />
+    <a href="../inputCoach">Add a new coach</a><br /><br />
+    <a href="index.html">Home Page</a>
+</body>
+</html>
