@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import crossfit.beans.Certification;
 import crossfit.beans.Coach;
 import crossfit.beans.Gym;
 
@@ -13,6 +14,7 @@ import crossfit.beans.Gym;
  * CIS175 - Fall 2022
  * Oct 13, 2022
  */
+
 @Configuration
 public class BeanConfiguration {
 
@@ -28,6 +30,12 @@ public class BeanConfiguration {
 	@Bean
 	public Coach coach() {
 		Coach bean = new Coach("No First Name Given", "No Last Name Given");
+		return bean;
+	}
+	
+	@Bean
+	public Certification certification() {
+		Certification bean = new Certification("No Cert. Name Provided", LocalDate.now(), LocalDate.now());
 		return bean;
 	}
 }
