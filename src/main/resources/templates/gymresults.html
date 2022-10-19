@@ -31,7 +31,12 @@ th, td {
                 <td th:text="${currentGym.name}">
                 <td th:text="${currentGym.dateOpened}">
                 <td th:text="${currentGym.affiliated}">
-                <td th:each="coach : ${currentGym.listOfCoaches}" th:text="${coach.firstName} + ' ' + ${coach.lastName}">
+                <td align="center">
+                    <table>
+                        <tr th:each="coach : ${currentGym.listOfCoaches}">
+                            <td align="center" th:text="${coach.firstName} + ' ' + ${coach.lastName}">
+                    </table>
+                </td>
                 <td><a th:href="@{/editGym/{id}(id=${currentGym.id})}">Edit</a></td>
                 <td><a th:href="@{/deleteGym/{id}(id=${currentGym.id})}">Delete</a></td>
             </tr>
