@@ -24,17 +24,20 @@ th, td {
                 <th>Gym Name</th>
                 <th>Date Opened</th>
                 <th>Affiliated</th>
+                <th>Coaches</th>
             </tr>
             <tr th:each="currentGym : ${gyms}">
                 <td th:text="${currentGym.id}" />
                 <td th:text="${currentGym.name}">
                 <td th:text="${currentGym.dateOpened}">
                 <td th:text="${currentGym.affiliated}">
+                <td th:each="coach : ${currentGym.listOfCoaches}" th:text="${coach.firstName} + ' ' + ${coach.lastName}">
                 <td><a th:href="@{/editGym/{id}(id=${currentGym.id})}">Edit</a></td>
                 <td><a th:href="@{/deleteGym/{id}(id=${currentGym.id})}">Delete</a></td>
             </tr>
         </table>
     </form>
-    <a href="../inputGym">Add a new gym</a>
+    <a href="../inputGym">Add a new gym</a><br /><br />
+    <a href="index.html">Home Page</a>
 </body>
 </html>
