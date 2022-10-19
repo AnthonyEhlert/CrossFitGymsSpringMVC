@@ -20,7 +20,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name= "coach_info")
+@Table(name= "coach")
 public class Coach {
 	
 	@Id
