@@ -40,7 +40,9 @@ public class Gym {
 	//default no arg constructor
 	public Gym() {
 		super();
+		this.name = "Unnamed Gym";
 		this.dateOpened = LocalDate.now();
+		this.affiliated = false;
 	}
 	
 	//helper constructors
