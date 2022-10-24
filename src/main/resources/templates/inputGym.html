@@ -6,8 +6,8 @@
 </head>
 <body>
     <form th:object="${newGym}" th:action="@{/updateGym/{id}(id=${newGym.id})}" method='POST'>
-        Gym Name: <input name="name" size="20" th:field="*{name}"> <br /> <br />
-        Date Opened: <input name="dateOpened" type= date size="15" th:field="*{dateOpened}"><br /><br />
+        Gym Name: <input name="name" size="20" th:field="*{name}" required> <br /> <br />
+        Date Opened: <input name="dateOpened" type= date size="15" th:field="*{dateOpened}" required><br /><br />
         Affiliated: <input name="affiliated" type="checkbox" th:field="*{affiliated}"><br /><br/>
         <input name="submit" type="submit" value="Submit" />
     </form>
