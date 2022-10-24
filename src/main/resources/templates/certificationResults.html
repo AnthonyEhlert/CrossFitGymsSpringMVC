@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+</style>
+<meta charset="UTF-8">
+<title>View All Certifications</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Certification Name</th>
+                <th>Date Issued</th>
+                <th>Date Expires</th>
+                <th>Coach</th>
+            </tr>
+            <tr th:each="currentCertification : ${certifications}">
+                <td th:text="${currentCertification.id}" />
+                <td th:text="${currentCertification.name}" />
+                <td th:text="${currentCertification.dateIssued}">
+                <td th:text="${currentCertification.dateExpires}">
+                <td th:text="${currentCertification.coach.firstName} + ' ' + ${currentCertification.coach.lastName}">
+
+                <td><a th:href="@{/editCertification/{id}(id=${currentCertification.id})}">Edit</a></td>
+                <td><a th:href="@{/deleteCertification/{id}(id=${currentCertification.id})}">Delete</a></td>
+            </tr>
+        </table>
+    </form>
+    <br /><br />
+    <a href="../inputCertification">Add a new certification</a><br /><br />
+    <a href="../index.html">Home Page</a>
+</body>
+</html>
