@@ -92,14 +92,6 @@ public class WebController {
 		return viewAllCoaches(model);
 	}
 	
-//	@GetMapping("editCoach")
-//	public String editCoach(Model model) {
-//		Coach c = new Coach();
-//		model.addAttribute("gyms", gymRepo.findAll());
-//		model.addAttribute("newCoach", c);
-//		return "inputCoach";
-//	}
-	
 	@GetMapping("/editCoach/{id}")
 	public String showUpdateCoach(@PathVariable("id") long id, Model model) {
 		model.addAttribute("gyms", gymRepo.findAll());
@@ -124,12 +116,13 @@ public class WebController {
 	@GetMapping("/viewAllCertifications")
 	public String viewAllCertifications(Model model) {
 		model.addAttribute("certifications", certRepo.findAll());
-		return "certResults";
+		return "certificationResults";
 	}
 	
 	@GetMapping("inputCertification")
 	public String addNewCertification(Model model) {
 		Certification cert = new Certification();
+		model.addAttribute("coaches", coachRepo.findAll());
 		model.addAttribute("newCertification", cert);
 		return "inputCertification";
 	}
@@ -142,6 +135,7 @@ public class WebController {
 	
 	@GetMapping("/editCertification/{id}")
 	public String showUpdateCertification(@PathVariable("id") long id, Model model) {
+		model.addAttribute("coaches", coachRepo.findAll());
 		Certification cert = certRepo.findById(id).orElse(null);
 		model.addAttribute("newCertification", cert);
 		return "inputCertification";
