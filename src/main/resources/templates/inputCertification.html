@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Certification</title>
+</head>
+<body>
+    <form th:object="${newCertification}" th:action="@{/updateCertification/{id}(id=${newCertification.id})}" method='POST'>
+        Certification Name: <input name="name" size="20" th:field="*{name}" required> <br /> <br />
+        Certification Issue Date: <input name="dateIssued" size="20" type="date" th:field="*{dateIssued}" required> <br /> <br />
+        Certification Expiration Date: <input name="dateExpires" size="20" type="date" th:field="*{dateExpires}" required> <br /> <br />
+        <table>
+                <tr>
+                    <th></th>
+                    <th>Coach's Name</th>
+                </tr>
+                <tr th:each="currentCoach : ${coaches}">
+                    <td> <input type="radio" th:name="coachId" th:field="*{coach}" th:value="${currentCoach.id}" required>
+                    <td th:text="${currentCoach.firstName} + ' ' + ${currentCoach.lastName}">
+                </tr>
+        </table>
+        <br />
+        <input name="submit" type="submit" value="Submit" />
+    </form>
+    <br /><br />
+    <a href="../viewAllGyms">View all Gyms</a><br /><br />
+    <a href="../viewAllCoaches">View all Coaches</a><br /><br />
+    <a href="../viewAllCertifications">View all Certifications</a><br /><br />
+    <a href="../index.html">Home Page</a>
+</body>
+</html>
