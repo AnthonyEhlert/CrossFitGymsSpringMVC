@@ -92,9 +92,17 @@ public class WebController {
 		return viewAllCoaches(model);
 	}
 	
+//	@GetMapping("editCoach")
+//	public String editCoach(Model model) {
+//		Coach c = new Coach();
+//		model.addAttribute("gyms", gymRepo.findAll());
+//		model.addAttribute("newCoach", c);
+//		return "inputCoach";
+//	}
+	
 	@GetMapping("/editCoach/{id}")
 	public String showUpdateCoach(@PathVariable("id") long id, Model model) {
-		//model.addAttribute("gyms", gymRepo.findAll());
+		model.addAttribute("gyms", gymRepo.findAll());
 		Coach c = coachRepo.findById(id).orElse(null);
 		model.addAttribute("newCoach", c);
 		return "inputCoach";
