@@ -35,7 +35,7 @@ public class BeanConfiguration {
 	
 	@Bean
 	public Certification certification() {
-		Certification bean = new Certification("No Cert. Name Provided", LocalDate.now(), LocalDate.now());
+		Certification bean = new Certification();
 		return bean;
 	}
 }
