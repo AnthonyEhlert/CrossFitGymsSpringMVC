@@ -20,7 +20,7 @@ public class BeanConfiguration {
 
 	@Bean
 	public Gym gym() {
-		Gym bean = new Gym("Unnamed Gym");
+		Gym bean = new Gym();
 //		bean.setName("CrossFit Ankeny");
 //		bean.setDateOpened(LocalDate.of(2010, 01, 01));
 //		bean.setAffiliated(true);
@@ -29,7 +29,7 @@ public class BeanConfiguration {
 	
 	@Bean
 	public Coach coach() {
-		Coach bean = new Coach("No First Name Given", "No Last Name Given");
+		Coach bean = new Coach();
 		return bean;
 	}
 	
