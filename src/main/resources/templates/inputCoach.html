@@ -8,16 +8,13 @@
     <form th:object="${newCoach}" th:action="@{/updateCoach/{id}(id=${newCoach.id})}" method='POST'>
         Coach's First Name: <input name="firstName" size="20" th:field="*{firstName}" required> <br /> <br />
         Coach's Last Name: <input name="lastName" size="20" th:field="*{lastName}" required> <br /> <br />
-<!--         <h3>Gyms</h3> -->
         <table>
                 <tr>
                     <th></th>
-<!--                     <th>Id</th> -->
                     <th>Gym Name</th>
                 </tr>
                 <tr th:each="currentGym : ${gyms}">
                     <td> <input type="radio" th:name="gymId" th:field="*{gym}" th:value="${currentGym.id}" required>
-<!--                     th:field="*{__${currentGym.id}__" required/> -->
                     <td th:text="${currentGym.name}">
                 </tr>
         </table>
