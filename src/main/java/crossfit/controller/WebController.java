@@ -81,6 +81,7 @@ public class WebController {
 	@GetMapping("inputCoach")
 	public String addNewCoach(Model model) {
 		Coach c = new Coach();
+		model.addAttribute("gyms", gymRepo.findAll());
 		model.addAttribute("newCoach", c);
 		return "inputCoach";
 	}
@@ -94,7 +95,9 @@ public class WebController {
 	@GetMapping("/editCoach/{id}")
 	public String showUpdateCoach(@PathVariable("id") long id, Model model) {
 		Coach c = coachRepo.findById(id).orElse(null);
+//		Gym g = gymRepo.findById(gymId).orElse(null);
 		model.addAttribute("newCoach", c);
+//		model.addAttribute("selectedGym", g);
 		return "inputCoach";
 	}
 	
