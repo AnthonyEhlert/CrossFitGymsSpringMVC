@@ -35,7 +35,6 @@ public class Coach {
 	private String firstName;
 	private String lastName;
 	
-	//@Noncacheable
 	@ManyToOne(fetch = FetchType.EAGER, cascade= {CascadeType.MERGE})
 	private Gym gym;
 	
