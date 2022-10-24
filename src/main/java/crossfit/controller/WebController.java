@@ -94,10 +94,9 @@ public class WebController {
 	
 	@GetMapping("/editCoach/{id}")
 	public String showUpdateCoach(@PathVariable("id") long id, Model model) {
+		//model.addAttribute("gyms", gymRepo.findAll());
 		Coach c = coachRepo.findById(id).orElse(null);
-//		Gym g = gymRepo.findById(gymId).orElse(null);
 		model.addAttribute("newCoach", c);
-//		model.addAttribute("selectedGym", g);
 		return "inputCoach";
 	}
 	
